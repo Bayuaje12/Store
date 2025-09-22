@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayzu official</title>
+  <meta name="description" content="Temukan berbagai produk menarik hanya di Bayzu official!">
+  <link rel="icon" type="image/png" href="https://cloudkuimages.guru/uploads/files/681a6b5501ee5.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <meta property="og:title" content="Bayzu official">
+  <meta property="og:description" content="Temukan berbagai produk menarik hanya di Bayzu official!">  
+  <meta property="og:url" content="https://gxyennstore.netlify.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cloudkuimages.guru/uploads/files/681a6b5501ee5.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bayzu official">
+  <meta name="twitter:description" content="Temukan berbagai produk menarik hanya di Bayzu official!">
+  <meta name="twitter:image" content="https://cloudkuimages.guru/uploads/files/681a6b5501ee5.png">
+  <meta name="twitter:url" content="https://gxyennstore.netlify.app">
+
+    <style>
+      :root {
+      --primary: #4c51bf;
+      --primary-dark: #434190;
+      --secondary: #38a169;
+      --secondary-dark: #2f855a;
+      --dark: #1a202c;
+      --dark-lighter: #2d3748;
+      --light: #e2e8f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--dark); color: var(--light); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; overflow-x: hidden; /* Allow Y scroll, hide X initially */ }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; outline: none; }
+
+    .intro-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; backdrop-filter: blur(10px); background: rgba(0, 0, 0, 0.4); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 1; animation: fadeInOverlay 1s forwards; }
+    @keyframes fadeInOverlay { to { opacity: 1; } }
+    .intro-content { text-align: center; animation: fadeInWidget 1s forwards; animation-delay: 0.5s; opacity: 0; transform: translateY(20px); z-index: 10001; position: relative; pointer-events: auto; }
+    @keyframes fadeInWidget { to { opacity: 1; transform: translateY(0); } }
+    .welcome-text { color: white; font-size: 1.5rem; margin-bottom: 16px; padding: 15px 30px; background: rgba(255, 255, 255, 0.05); border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); }
+    .intro-button { padding: 12px 24px; font-size: 1rem; color: #1a202c; background: linear-gradient(45deg, white, cyan); border: none; border-radius: 30px; box-shadow: 0 0 12px rgba(0,255,255,0.4); transition: background 0.3s, transform 0.3s; z-index: 10002; position: relative; }
+    .intro-button:hover { background: linear-gradient(45deg, cyan, white); transform: scale(1.05); }
+    .intro-overlay.hide { animation: fadeOutOverlay 1s forwards; pointer-events: none;}
+    @keyframes fadeOutOverlay { to { opacity: 0; visibility: hidden; } }
+    
+    #mainContent { display: none; opacity: 0; animation: fadeInContent 0.5s 0.2s forwards; } /* For main content after intro */
+    @keyframes fadeInContent { to { opacity: 1; } }
+
+
+    header { background: linear-gradient(135deg, #3998e4 0%, #667eea 100%); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 0; }
+    header > * { position: relative; z-index: 1; }
+    header img { width: 8rem; height: 8rem; border-radius: 50%; margin-bottom: 1.5rem; border: 4px solid white; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease; }
+    header img:hover { transform: scale(1.05); }
+    header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+    header p { font-size: 1.2rem; margin-bottom: 1.5rem; opacity: 0.9; }
+    
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    nav a button, nav button { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); color: white; font-weight: 800; padding: 0.75rem 0.7rem; border-radius: 9999px; font-size: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.3); }
+    nav a button:hover, nav button:hover { transform: translateY(-3px); box-shadow: 0 9px 14px rgba(0, 0, 0, 0.15); background: rgba(255, 255, 255, 0.25); }
+    nav a button:active, nav button:active { transform: translateY(0); }
+    
+    .auth-links { display: flex; gap: 0.75rem; } /* For Login/Register or User/Logout */
+    #userInfo { font-weight: normal; font-size: 0.9em; padding: 0 0.5rem; }
+
+
+    section { padding: 4rem 1.5rem; }
+    section h1 { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 2rem; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+    section h1::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 4px; background: linear-gradient(to right, var(--primary), var(--secondary)); border-radius: 2px; }
+    section h1 i { margin-right: 0.5rem; color: var(--secondary); }
+    
+    .project-container { display: flex; overflow-x: auto; gap: 1.5rem; padding: 1.5rem 0.5rem; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; position: relative; }
+    .project-container::-webkit-scrollbar { display: none; }
+    .carousel-controls { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+    .carousel-controls button { background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s; }
+    .carousel-controls button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    
+    .produk { background: linear-gradient(145deg, #323b4d, #2a3241); border-radius: 1rem; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); padding: 1.5rem; width: 100%; max-width: 320px; flex-shrink: 0; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .list-produk { font-size: 20px; font-weight: 600; background: linear-gradient(90deg, #00c6ff, #0072ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradientMove 5s infinite linear; margin: 20px 0; text-align: center; }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+    .produk:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); }
+    .produk img { width: 100%; height: 200px; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s; }
+    .produk:hover img { transform: scale(1.03); }
+    .produk h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: white; }
+    .produk ul { list-style-type: none; margin-bottom: 1.5rem; }
+    .produk ul li { margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem; }
+    .produk ul li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary); font-weight: bold; }
+    .produk p { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: white; padding: 0.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .produk a { display: block; text-align: center; background: linear-gradient(to right, var(--secondary), var(--secondary-dark)); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+    .produk a:hover { transform: scale(1.05); box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15); }
+    
+    .warning { background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); color: white; padding: 3rem 1.5rem; text-align: left; margin: 3rem 0; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; }
+    .warning::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"); opacity: 0.2; }
+    .warning > * { position: relative; z-index: 1; }
+    .warning h1 { color: white; }
+    .warning h1::after { background: white; }
+    .warning p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; }
+    
+    .payment-modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; }
+    .payment-box { background: var(--dark-lighter); border: 1px solid rgba(255,255,255,0.1); color: var(--light); border-radius: 16px; width: 92%; max-width: 380px; padding: 20px 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); animation: fadeInUp 0.35s ease-out; position: relative; max-height: 94vh; overflow-y: auto; transform: scale(0.93); transform-origin: center; }
+    .payment-box .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; color: var(--light); background: transparent; border: none; cursor: pointer; }
+    .payment-box h2 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; text-align: center; color: #63b3ed; letter-spacing: 0.5px; }
+    #paymentProductName, #paymentProductPrice { text-align: center; margin-bottom: 8px; }
+    #paymentProductName {font-size: 1rem; font-weight: bold;}
+    #paymentProductPrice {font-size: 0.9rem; color: var(--secondary); }
+    .payment-item { background: var(--dark); border-radius: 12px; padding: 8px 10px; margin-bottom: 8px; color: #e2e8f0; position: relative; }
+    .payment-item label { display: block; font-weight: bold; color: #a0aec0; font-size: 13px; margin-bottom: 4px; text-align: center; }
+    .payment-item span { display: inline-block; font-size: 13px; word-break: break-word; }
+    .payment-row { display: flex; justify-content: space-between; align-items: center; }
+    .copy-btn { background: #4c51bf; color: white; border: none; border-radius: 8px; padding: 4px 9px; font-size: 11px; cursor: pointer; transition: background 0.3s; }
+    .copy-btn:hover { background: #434190; }
+    .payment-link { font-size: 13px; text-align: center; display: block; margin-top: 10px; color: #63b3ed; text-decoration: underline; }
+    .payment-info { margin-top: 15px; }
+    .payment-footer { font-size: 12px; color: #a0aec0; margin-top: 8px; text-align: center; line-height: 1.35; }
+    .payment-button { margin-top: 20px; background: var(--secondary); color: white; border: none; width: 100%; padding: 10px 0; border-radius: 10px; font-weight: bold; font-size: 13px; cursor: pointer; transition: background 0.3s; }
+    .payment-button:hover { background: var(--secondary-dark); }
+    .payment-button:disabled { background: #4a5568; cursor: not-allowed; }
+    .info-label { font-weight: bold; font-size: 14px; color: #cbd5e0; display: block; margin: 18px 0 6px; text-align: center; }
+    .payment-box input[type="email"], .payment-box input[type="text"], .payment-box input[type="file"] { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #4a5568; background-color: var(--dark); color: var(--light); box-sizing: border-box; font-size: 0.9rem;}
+    .payment-box input[type="file"] { padding: 5px; }
+    .waifu-animasi { margin-top: 20px; text-align: center; animation: fadeIn 1s ease; }
+    .waifu-animasi img { max-width: 130px; border-radius: 12px; animation: waving infinite 3s ease-in-out; }
+    .waifu-caption { font-size: 12px; color: #a0aec0; margin-top: 5px; text-align: center; }
+    @keyframes fadeInUp { from { transform: translateY(40px) scale(0.93); opacity: 0; } to { transform: translateY(0) scale(0.93); opacity: 1; } }
+    @keyframes waving { 0% { transform: rotate(0deg); } 25% { transform: rotate(3deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-3deg); } 100% { transform: rotate(0deg); } }
+    
+    .faq, .about { background: linear-gradient(145deg, #323b4d, #2a3241); border-radius: 1rem; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); padding: 2.5rem; max-width: 900px; margin: 3rem auto; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .faq h2, .about h2 { font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255, 255, 255, 0.1); color: white; }
+    .faq ul { list-style-type: none; }
+    .faq ul li { margin-bottom: 1.5rem; }
+    .faq ul li strong { color: var(--secondary); display: block; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .about p { margin-bottom: 1.5rem; line-height: 1.8; }
+    
+    .medsos { text-align: center; padding: 4rem 1.5rem; } /* Centered text */
+    .medsos-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .medsos button { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; font-weight: 600; padding: 1rem 1.5rem; border-radius: 9999px; display: flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s; position: relative; overflow: hidden; }
+    .medsos button::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, var(--secondary), var(--primary)); opacity: 0; transition: opacity 0.3s; }
+    .medsos button:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); }
+    .medsos button:hover::before { opacity: 1; }
+    .medsos button i, .medsos button span { position: relative; z-index: 1; }
+    
+    footer { background-color: var(--dark-lighter); color: var(--light); text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    footer p { font-size: 0.9rem; opacity: 0.8; }
+    
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: all 0.3s; opacity: 0; visibility: hidden; z-index: 1000; }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-5px); background: var(--primary-dark); }
+    
+    @media (max-width: 768px) {
+        header h1 { font-size: 2rem; }
+        .produk { max-width: 280px; }
+        .faq, .about { padding: 1.5rem; }
+        .payment-box { padding: 20px 15px; max-width: 95%; }
+    }
+    @media (min-width: 768px) { .project-container { padding: 2rem; } }
+    </style>
+</head>
+<body>
+ <div class="intro-overlay" id="intro">
+    <div class="intro-content">
+    <h1 class="welcome-text">👋 Hai, Silahkan Click Di Bawah Untuk Memulai!</h1>
+      <button class="intro-button" onclick="hideIntro()">VIEW STORE</button>
+    </div>
+  </div>
+  
+  <div id="mainContent">
+    <header id="home">
+        <img src="https://cloudkuimages.guru/uploads/images/681879373c2a3.jpg" alt="Profile picture of Bayzu official">
+        <h1>Bayzu official</h1>
+        <p>Store Hosting Aman Terpercaya!</p>
+        
+        <nav>
+            <a href="#home"><button><i class="fas fa-home"></i> Home</button></a>
+            <a href="https://whatsapp.com/channel/0029VbA2hBk545v0o99EWV1g" target="_blank" rel="noopener noreferrer"><button><i class="fas fa-star"></i> Testimoni</button></a>
+            <a href="https://whatsapp.com/channel/0029Vap5nJh2UPBDIc9bja1s" target="_blank" rel="noopener noreferrer"><button><i class="fas fa-bullhorn"></i> Channel</button></a>
+            <a href="#produc"><button><i class="fas fa-store"></i> Produk</button></a>
+            <a href="#faq"><button><i class="fas fa-question-circle"></i> FAQ</button></a>
+            <a href="#about"><button><i class="fas fa-info-circle"></i> About</button></a>
+            <a href="#medsos"><button><i class="fas fa-globe"></i> Medsos</button></a>
+            <div id="authNavLinks" class="auth-links">
+            </div>
+        </nav>
+    </header>
+    
+   <div class="payment-modal" id="paymentModal">
+    <div class="payment-box">
+      <button class="close-btn" onclick="closePaymentModal()">×</button>
+      <h2 class="payment-greeting">Hai <span id="greetingUserName"></span>👋, Silahkan Transfer Terlebih Dahulu!</h2>
+      <p id="paymentProductName"></p>
+      <p id="paymentProductPrice"></p>
+  
+      <h2 class="payment-title">PAYMENT DETAILS</h2>
+      <div class="payment-item">
+        <label>DANA:</label>
+        <div class="payment-row">
+          <span id="danaText">083877636168</span>
+          <button class="copy-btn" onclick="copyText('danaText')">Copy</button>
+        </div>
+      </div>
+      <div class="payment-item">
+        <label>GOPAY:</label>
+        <div class="payment-row">
+          <span id="gopayText">083877636168</span>
+          <button class="copy-btn" onclick="copyText('gopayText')">Copy</button>
+        </div>
+      </div>
+      <div class="payment-item">
+          <label>OVO:</label>
+          <div class="payment-row">
+            <span id="ovoText">Maaf, Payment Ovo Sedang Kosong!</span>
+            <button class="copy-btn" onclick="copyText('ovoText')">Copy</button>
+          </div>
+        </div>
+        <div class="payment-item">
+          <label>QRIS:</label>
+          <div class="payment-row">
+            <span id="qrisText">Qris Statis blm tersedia, silahkan minta Qris Dinamis ke admin!</span>
+            <button class="copy-btn" onclick="copyText('qrisText')">Copy</button>
+          </div>
+        </div>
+        <a class="payment-link" id="qrisLink" target="_blank">Minta Qris</a>
+  
+      <div class="payment-info" style="margin-top: 20px;">
+        <label class="info-label">Setelah Transfer, Isi Form Ini:</label>
+        <input type="email" id="userEmail" placeholder="Email Aktif Anda (otomatis jika login)" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+        <input type="text" id="transactionId" placeholder="ID Transaksi / Nama Pengirim (jika ada)" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+        <label for="paymentProof" style="display:block; margin-bottom: 5px; font-size:13px; color: #ccc;">Upload Bukti Transfer (Opsional):</label>
+        <input type="file" id="paymentProof" accept="image/*,application/pdf" style="width: 100%; margin-bottom: 10px;">
+      </div>
+  
+      <div class="payment-info">
+        <label class="info-label">Please Read!</label>
+        <div class="payment-footer">
+          Selesaikan pembayaran terlebih dahulu untuk membeli produk, lalu screenshot bukti pembayarannya, setelah itu kirim ke admin dengan menekan tombol di bawah.
+        </div>
+        <div class="payment-footer">
+          Tolong selesaikan pembayaran sesuai harga produk yang dibeli. Akun panel akan dikirim ke email yang Anda masukkan (atau email akun Anda jika login).
+        </div>
+      </div>
+      <div class="payment-info">
+        <label class="info-label">Note</label>
+        <div class="payment-footer">
+          Jikalau admin sedang offline, mohon tunggu hingga online / beberapa saat sampai admin respon.
+        </div>
+      </div>
+      <button id="submitOrderButton" class="payment-button" onclick="submitOrder()">Kirim Bukti & Data ke Admin</button>
+      <div class="waifu-animasi">
+        <img src="https://media.tenor.com/WtO7E5WaRMUAAAAC/foxy-foxplushy-vtuber.gif" alt="Foxplushy Waifu" />
+        <p class="waifu-caption">Bayzu official~</p>
+      </div>
+    </div>
+  </div>
+
+    <section id="produc">
+    <h1><i class="fas fa-store"></i>PRODUK TERSEDIA</h1>
+
+    <div class="list-produk">LIST PANEL PTERODACTYL</div>
+    <div class="project-container" id="productCarouselPtero">
+        <div class="produk">           
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 1GB || CPU 40%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 1.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('1000', 'Panel RAM 1GB CPU 40%', 'Rp 1.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+          <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+          <h2>RAM 2GB || CPU 60%</h2>
+          <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+          <p>Harga: Rp 2.000/Bulan</p>
+          <a href="#" onclick="openPaymentModal('2000', 'Panel RAM 2GB CPU 60%', 'Rp 2.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+          <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+          <h2>RAM 3GB || CPU 80%</h2>
+          <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+          <p>Harga: Rp 3.000/Bulan</p>
+          <a href="#" onclick="openPaymentModal('3000', 'Panel RAM 3GB CPU 80%', 'Rp 3.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+          <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+          <h2>RAM 4GB || CPU 100%</h2>
+          <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+          <p>Harga: Rp 4.000/Bulan</p>
+          <a href="#" onclick="openPaymentModal('4000', 'Panel RAM 4GB CPU 100%', 'Rp 4.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 5GB || CPU 120%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 5.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('5000', 'Panel RAM 5GB CPU 120%', 'Rp 5.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 6GB || CPU 140%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 6.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('6000', 'Panel RAM 6GB CPU 140%', 'Rp 6.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 7GB || CPU 160%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 7.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('7000', 'Panel RAM 7GB CPU 160%', 'Rp 7.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 8GB || CPU 180%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 8.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('8000', 'Panel RAM 8GB CPU 180%', 'Rp 8.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 9GB || CPU 200%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 8.500/Bulan</p>
+            <a href="#" onclick="openPaymentModal('8500', 'Panel RAM 9GB CPU 200%', 'Rp 8.500/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM 10GB || CPU 220%</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 9.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('9000', 'Panel RAM 10GB CPU 220%', 'Rp 9.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+        <div class="produk">
+            <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Panel Pterodactyl">
+            <h2>RAM UNLI || CPU UNLI</h2>
+            <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Garansi 5 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+            <p>Harga: Rp 10.000/Bulan</p>
+            <a href="#" onclick="openPaymentModal('10000', 'Panel RAM UNLI CPU UNLI', 'Rp 10.000/Bulan'); return false;">Beli Sekarang</a>
+        </div>
+     </div>        
+        <div class="carousel-controls">
+            <button id="prevButtonPtero"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextButtonPtero"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+
+    <section id="producVip">    
+        <div class="list-produk">LIST PANEL PTERODACTYL VIP</div>
+        <div class="project-container" id="productCarouselVip">  
+            <div class="produk">
+                <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Reseller Panel">
+                <h2>Reseller Panel</h2>
+                <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Bisa Create Panel Sepuasnya</li><li>Bisa Jualan Panel</li><li>Garansi 5 hari, Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+                <p>Harga: Rp 12.000/Bulan</p>
+                <a href="#" onclick="openPaymentModal('12000', 'Reseller Panel', 'Rp 12.000/Bulan'); return false;">Beli Sekarang</a>
+            </div>
+            <div class="produk">
+                <img src="https://cloudkuimages.guru/uploads/images/681c5e133866a.jpg" alt="Admin Panel">
+                <h2>Admin Panel</h2>
+                <ul><li>Panel PterodacTyl, Run Bot Cepat</li><li>Bisa Create Panel Sepuasnya</li><li>Bisa Jualan Panel Dengan Harga Sesuai Yang Kamu Mau</li><li>Bisa Dellete Server/User Panel</li><li>Pantau Panel Sesuka Hati</li><li>Garansi 7 hari Jika Eror</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul>
+                <p>Harga: Rp 15.000/Bulan</p>
+                <a href="#" onclick="openPaymentModal('15000', 'Admin Panel', 'Rp 15.000/Bulan'); return false;">Beli Sekarang</a>
+            </div>
+        </div>    
+        <div class="carousel-controls">  
+            <button id="prevButtonVip"><i class="fas fa-chevron-left"></i></button>  
+            <button id="nextButtonVip"><i class="fas fa-chevron-right"></i></button>  
+        </div>  
+    </section>
+            
+    <section id="producNokos">
+        <div class="list-produk">LIST NOKOS ALL REGION</div>
+        <div class="project-container" id="productCarouselNokos">  
+            <div class="produk"> <img src="https://flagcdn.com/w320/id.png" alt="Indonesia"> <h2>Indonesia</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 6.000</p> <a href="#" onclick="openPaymentModal('6000','NOKOS Indonesia', 'Rp 6.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/my.png" alt="Malaysia"> <h2>Malaysia</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 11.000</p> <a href="#" onclick="openPaymentModal('11000','NOKOS Malaysia', 'Rp 11.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/ru.png" alt="Russia"> <h2>Russia</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 12.000</p> <a href="#" onclick="openPaymentModal('12000','NOKOS Russia', 'Rp 12.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/cn.png" alt="China"> <h2>China</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 18.000</p> <a href="#" onclick="openPaymentModal('18000','NOKOS China', 'Rp 18.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/fr.png" alt="France"> <h2>France</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 118.000</p> <a href="#" onclick="openPaymentModal('118000','NOKOS France', 'Rp 118.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/us.png" alt="USA"> <h2>USA</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 130.000</p> <a href="#" onclick="openPaymentModal('130000','NOKOS USA', 'Rp 130.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/au.png" alt="Australia"> <h2>Australia</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 85.000</p> <a href="#" onclick="openPaymentModal('85000','NOKOS Australia', 'Rp 85.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/in.png" alt="India"> <h2>India</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 27.000</p> <a href="#" onclick="openPaymentModal('27000','NOKOS India', 'Rp 27.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/nl.png" alt="Netherlands"> <h2>Netherlands</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 21.000</p> <a href="#" onclick="openPaymentModal('21000','NOKOS Netherlands', 'Rp 21.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/tr.png" alt="Turkey"> <h2>Turkey</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 91.000</p> <a href="#" onclick="openPaymentModal('91000','NOKOS Turkey', 'Rp 91.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/th.png" alt="Thailand"> <h2>Thailand</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 18.000</p> <a href="#" onclick="openPaymentModal('18000','NOKOS Thailand', 'Rp 18.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/gb.png" alt="England"> <h2>England</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 18.000</p> <a href="#" onclick="openPaymentModal('18000','NOKOS England', 'Rp 18.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/co.png" alt="Colombia"> <h2>Colombia</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 13.000</p> <a href="#" onclick="openPaymentModal('13000','NOKOS Colombia', 'Rp 13.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/de.png" alt="Germany"> <h2>Germany</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 61.000</p> <a href="#" onclick="openPaymentModal('61000','NOKOS Germany', 'Rp 61.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/ph.png" alt="Philippines"> <h2>Philippines</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 6.000</p> <a href="#" onclick="openPaymentModal('6000','NOKOS Philippines', 'Rp 6.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/br.png" alt="Brazil"> <h2>Brazil</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 18.000</p> <a href="#" onclick="openPaymentModal('18000','NOKOS Brazil', 'Rp 18.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/jp.png" alt="Japan"> <h2>Japan</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 124.000</p> <a href="#" onclick="openPaymentModal('124000','NOKOS Japan', 'Rp 124.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/bt.png" alt="Bhutan"> <h2>Bhutan</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 9.500</p> <a href="#" onclick="openPaymentModal('9500','NOKOS Bhutan', 'Rp 9.500'); return false;">Beli Sekarang</a></div>
+            <div class="produk"> <img src="https://flagcdn.com/w320/kz.png" alt="Kazakhstan"> <h2>Kazakhstan</h2> <ul><li>Nokos Cepat Dan Lengkap</li><li>No Garansi Jikalau Sudh Terpasang</li><li>Dukungan 24/7</li><li>Harga terjangkau</li></ul> <p>Harga: Rp 36.000</p> <a href="#" onclick="openPaymentModal('36000','NOKOS Kazakhstan', 'Rp 36.000'); return false;">Beli Sekarang</a></div>
+        </div>  
+        <div class="carousel-controls">  
+            <button id="prevButtonNokos"><i class="fas fa-chevron-left"></i></button>  
+            <button id="nextButtonNokos"><i class="fas fa-chevron-right"></i></button>  
+        </div>  
+    </section>
+
+    <section id="producApk">    
+        <div class="list-produk">LIST APK PREMIUM</div>
+        <div class="project-container" id="productCarouselApk">  
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681bbc942f91a.jpg" alt="Alight Motion"><h2>Alight Motion</h2><ul><li>Edit video profesional tanpa watermark</li><li>Semua fitur premium unlocked</li><li>Free Update 1×!</li></ul><p>Harga: Rp 15.000</p><a href="#" onclick="openPaymentModal('15000', 'Alight Motion Premium', 'Rp 15.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681bbd9b09987.jpg" alt="Spotify"><h2>Spotify</h2><ul><li>Streaming musik bebas iklan</li><li>Skip lagu tanpa batas</li><li>Free Update 1×!</li></ul><p>Harga: Rp 10.000</p><a href="#" onclick="openPaymentModal('10000', 'Spotify Premium', 'Rp 10.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" alt="Netflix"><h2>Netflix</h2><ul><li>Nonton film & series sepuasnya</li><li>Kualitas HD + bebas iklan</li><li>Free Update 1×!</li></ul><p>Harga: Rp 15.000</p><a href="#" onclick="openPaymentModal('15000', 'Netflix Premium', 'Rp 15.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681bbd4dc9f45.jpg" alt="CapCut"><h2>CapCut</h2><ul><li>Edit video bebas watermark</li><li>Efek & filter lengkap</li><li>Free Update 1×!</li></ul><p>Harga: Rp 12.000</p><a href="#" onclick="openPaymentModal('12000', 'CapCut Premium', 'Rp 12.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681c5e6be3496.jpg" alt="Ask AI"><h2>Ask AI</h2><ul><li>Tanya jawab pintar 24/7</li><li>Fitur premium tanpa batas</li><li>Free Update 1×!</li></ul><p>Harga: Rp 8.000</p><a href="#" onclick="openPaymentModal('8000', 'Ask AI Premium', 'Rp 8.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681c5e4e9c71b.jpg" alt="YouTube Music"><h2>YouTube Music</h2><ul><li>Dengarkan musik tanpa batas</li><li>Tanpa iklan & bisa offline</li><li>Free Update 1×!</li></ul><p>Harga: Rp 10.000</p><a href="#" onclick="openPaymentModal('10000', 'YouTube Music Premium', 'Rp 10.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/681bbcd3ec1a3.jpg" alt="Crunchyroll"><h2>Crunchyroll</h2><ul><li>Anime terbaru tanpa iklan</li><li>Semua episode terbuka</li><li>Free Update 1×!</li></ul><p>Harga: Rp 13.000</p><a href="#" onclick="openPaymentModal('13000', 'Crunchyroll Premium', 'Rp 13.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/68231cf5ca501.jpg" alt="GetContact"><h2>GetContact</h2><ul><li>Identifikasi nomor telepon</li><li>Lihat nama panggilan orang lain</li><li>Free Update 1×!</li></ul><p>Harga: Rp 10.000</p><a href="#" onclick="openPaymentModal('10000', 'GetContact Premium', 'Rp 10.000'); return false;">Beli Sekarang</a></div>
+            <div class="produk"><img src="https://cloudkuimages.guru/uploads/images/68231d231b703.jpg" alt="Remini Premium"><h2>Remini Premium</h2><ul><li>Foto buram jadi jernih HD</li><li>Efek peningkat wajah otomatis</li><li>Free Update 1×</li></ul><p>Harga: Rp 8.000</p><a href="#" onclick="openPaymentModal('8000', 'Remini Premium', 'Rp 8.000'); return false;">Beli Sekarang</a></div>
+        </div>
+        <div class="carousel-controls">  
+            <button id="prevButtonApk"><i class="fas fa-chevron-left"></i></button>  
+            <button id="nextButtonApk"><i class="fas fa-chevron-right"></i></button>  
+        </div>
+    </section>
+
+    <section id="warning" class="warning">
+        <h1><i class="fas fa-exclamation-triangle"></i> Peringatan</h1>
+        <p>Produk yang saya jual seperti List Di atas hanya ditujukan untuk keperluan edukasi, pengujian, dan proyek legal. Saya tidak bertanggung jawab atas penyalahgunaan layanan untuk tindakan ilegal, spam, penipuan, atau aktivitas berbahaya lainnya. Harap gunakan produk dengan bijak dan sesuai hukum yang berlaku.</p>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+        <ul>
+            <li><strong>Q: Bagaimana cara membeli?</strong>A: Anda bisa klik "Beli Sekarang" pada produk yang diinginkan, lalu isi detail pembayaran dan email Anda. Jika Anda sudah login, email akan terisi otomatis. Setelah pembayaran dikonfirmasi oleh admin, produk akan diproses.</li>
+            <li><strong>Q: Apakah ada dukungan teknis?</strong>A: Ya, kami menyediakan dukungan teknis. Hubungi kami melalui WhatsApp atau Telegram.</li>
+            <li><strong>Q: Apakah ada garansi uang kembali?</strong>A: Kami menawarkan garansi terbatas sesuai syarat dan ketentuan produk. Kepuasan pelanggan adalah prioritas kami.</li>
+            <li><strong>Q: Berapa lama prosesnya?</strong>A: Proses aktivasi biasanya memakan waktu beberapa menit hingga beberapa jam setelah pembayaran dikonfirmasi, tergantung antrian dan jam operasional admin.</li>
+        </ul>
+    </section>
+
+    <section id="about" class="about">
+        <h2><i class="fas fa-info-circle"></i> Tentang Bayzu official</h2>
+        <p>Bayzu official adalah penyedia layanan digital yang berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami. Kami menawarkan berbagai produk digital sesuai kebutuhan Anda.</p>
+        <p>Dengan pengalaman di industri ini, kami memahami pentingnya keandalan, kecepatan, dan keamanan. Kami berusaha menghadirkan layanan dengan dukungan teknologi terbaru.</p>
+        <p>Dengan dukungan teknis dan harga yang terjangkau, kami siap membantu Anda. Kepuasan pelanggan adalah prioritas utama kami.</p>
+    </section>
+
+    <section id="medsos" class="medsos">
+        <h1><i class="fas fa-globe"></i> Media Sosial & Kontak</h1>
+        <p>Ikuti kami di media sosial atau hubungi admin untuk informasi terbaru, produk, promo, dan bantuan.</p>
+        <div class="medsos-buttons">
+            <button id="whatsappButton"><i class="fab fa-whatsapp"></i> <span>Admin WhatsApp</span> <i class="fas fa-external-link-alt"></i></button>
+            <button id="telegramButton"><i class="fab fa-telegram"></i> <span>Channel Info</span> <i class="fas fa-external-link-alt"></i></button>            
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Bayzu official. All rights reserved.</p>
+        <p>Menyediakan layanan digital terbaik untuk kebutuhan Anda.</p>
+    </footer>
+
+    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+  </div>
+
+<script>
+    let currentUser = null;
+    let currentProduct = { name: '', price: '', formattedPrice: '' };
+
+    function hideIntro() {
+        document.getElementById('intro').classList.add('hide');
+        setTimeout(() => {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            document.body.style.overflowY = 'auto';
+        }, 1000);
+    }
+
+    function setupCarousel(carouselId, prevBtnId, nextBtnId) {
+        const carousel = document.getElementById(carouselId);
+        const prevButton = document.getElementById(prevBtnId);
+        const nextButton = document.getElementById(nextBtnId);
+        if (carousel && prevButton && nextButton) {
+            prevButton.addEventListener('click', () => carousel.scrollBy({ left: -340, behavior: 'smooth' }));
+            nextButton.addEventListener('click', () => carousel.scrollBy({ left: 340, behavior: 'smooth' }));
+        }
+    }
+    
+    function updateAuthNav() {
+        const authNavLinks = document.getElementById('authNavLinks');
+        authNavLinks.innerHTML = ''; 
+        if (currentUser) {
+            const userWelcome = document.createElement('span');
+            userWelcome.id = 'userInfo';
+            userWelcome.textContent = `Hi, ${currentUser.firstName}!`;
+            
+            const logoutButton = document.createElement('button');
+            logoutButton.innerHTML = `<i class="fas fa-sign-out-alt"></i> Logout`;
+            logoutButton.onclick = function() {
+                localStorage.removeItem('gxyennToken');
+                localStorage.removeItem('gxyennUser');
+                currentUser = null;
+                updateAuthNav();
+                alert('Anda telah logout.');
+                // Optionally, redirect or refresh part of the page
+                 window.location.reload(); // Simple reload
+            };
+            // My Orders link (conceptual)
+            // const myOrdersLink = document.createElement('a');
+            // myOrdersLink.href = "/my-orders.html"; // This page would need to be created
+            // myOrdersLink.innerHTML = `<button><i class="fas fa-receipt"></i> My Orders</button>`;
+            // authNavLinks.appendChild(myOrdersLink);
+
+            authNavLinks.appendChild(userWelcome);
+            authNavLinks.appendChild(logoutButton);
+
+        } else {
+            const loginLink = document.createElement('a');
+            loginLink.href = "/login";
+            loginLink.innerHTML = `<button><i class="fas fa-sign-in-alt"></i> Login</button>`;
+            
+            const registerLink = document.createElement('a');
+            registerLink.href = "/register";
+            registerLink.innerHTML = `<button><i class="fas fa-user-plus"></i> Register</button>`;
+            
+            authNavLinks.appendChild(loginLink);
+            authNavLinks.appendChild(registerLink);
+        }
+    }
+
+    async function checkLoginStatus() {
+        const token = localStorage.getItem('gxyennToken');
+        const storedUser = localStorage.getItem('gxyennUser');
+
+        if (token && storedUser) {
+            try {
+                currentUser = JSON.parse(storedUser);
+                // Optionally, verify token with a lightweight /api/auth/status endpoint
+                const response = await fetch('/api/auth/status', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (!data.isLoggedIn) { // Token invalid or expired on server
+                        localStorage.removeItem('gxyennToken');
+                        localStorage.removeItem('gxyennUser');
+                        currentUser = null;
+                    } else {
+                        currentUser = data.user; // Refresh user data from server
+                        localStorage.setItem('gxyennUser', JSON.stringify(currentUser));
+                    }
+                } else { // Problem with status check, assume logged out for safety
+                    localStorage.removeItem('gxyennToken');
+                    localStorage.removeItem('gxyennUser');
+                    currentUser = null;
+                }
+            } catch (e) {
+                console.error("Error parsing stored user or checking status", e);
+                localStorage.removeItem('gxyennToken');
+                localStorage.removeItem('gxyennUser');
+                currentUser = null;
+            }
+        } else {
+            currentUser = null;
+        }
+        updateAuthNav();
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        checkLoginStatus();
+
+        setupCarousel('productCarouselPtero', 'prevButtonPtero', 'nextButtonPtero');
+        setupCarousel('productCarouselVip', 'prevButtonVip', 'nextButtonVip');
+        setupCarousel('productCarouselNokos', 'prevButtonNokos', 'nextButtonNokos');
+        setupCarousel('productCarouselApk', 'prevButtonApk', 'nextButtonApk');
+
+        const backToTopButton = document.getElementById('backToTop');
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) backToTopButton.classList.add('visible');
+                else backToTopButton.classList.remove('visible');
+            });
+            backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        const whatsappButton = document.getElementById('whatsappButton');
+        if(whatsappButton) whatsappButton.onclick = () => window.open('https://wa.me/6283877636168', '_blank');
+        
+        const telegramButton = document.getElementById('telegramButton');
+        if(telegramButton) telegramButton.onclick = () => window.open('https://whatsapp.com/channel/0029Vap5nJh2UPBDIc9bja1s', '_blank');
+    });
+
+    function openPaymentModal(numericPrice, productName, formattedPriceString) {
+        if (!currentUser && !confirm("Anda belum login. Melanjutkan pesanan tanpa login akan memerlukan Anda memasukkan email secara manual. Login/Register untuk pengalaman yang lebih baik. Lanjutkan?")) {
+            return;
+        }
+
+        currentProduct = { name: productName, price: numericPrice, formattedPrice: formattedPriceString };
+        document.getElementById('paymentProductName').textContent = `Produk: ${productName}`;
+        document.getElementById('paymentProductPrice').textContent = `Harga: ${formattedPriceString}`;
+        
+        const userEmailInput = document.getElementById('userEmail');
+        const greetingUserName = document.getElementById('greetingUserName');
+        if (currentUser) {
+            userEmailInput.value = currentUser.email;
+            userEmailInput.readOnly = true;
+            greetingUserName.textContent = currentUser.firstName;
+        } else {
+            userEmailInput.value = '';
+            userEmailInput.readOnly = false;
+            greetingUserName.textContent = "";
+        }
+
+        document.getElementById('transactionId').value = '';
+        const paymentProofInput = document.getElementById('paymentProof');
+        if(paymentProofInput) paymentProofInput.value = null;
+        document.getElementById('qrisLink').href = `https://wa.me/6283877636168?text=Admin+Minta+qris+Nominal+${numericPrice}`;
+        document.getElementById('paymentModal').style.display = 'flex';
+    }
+
+    function closePaymentModal() {
+        document.getElementById('paymentModal').style.display = 'none';
+    }
+
+    function copyText(id) {
+        const value = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(value).then(() => {
+            alert("Disalin: " + value);
+        }).catch(err => {
+            alert("Gagal menyalin. Coba secara manual.");
+            console.error('Copy failed', err);
+        });
+    }
+
+    async function submitOrder() {
+        const emailInput = document.getElementById('userEmail');
+        const transactionId = document.getElementById('transactionId').value.trim();
+        const paymentProofFile = document.getElementById('paymentProof').files[0];
+        const submitBtn = document.getElementById('submitOrderButton');
+
+        let email = emailInput.value.trim();
+
+        if (!email) {
+            alert('Silakan masukkan email Anda.');
+            return;
+        }
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            alert('Format email tidak valid.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('userEmail', email); // This will be used if user not logged in
+        formData.append('transactionId', transactionId);
+        if (paymentProofFile) formData.append('paymentProof', paymentProofFile);
+        formData.append('productName', currentProduct.name);
+        formData.append('productPrice', currentProduct.price);
+        formData.append('productPriceFormatted', currentProduct.formattedPrice);
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Mengirim...';
+
+        try {
+            const headers = {};
+            const token = localStorage.getItem('gxyennToken');
+            if (token) { 
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: headers,
+                body: formData
+            });
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(`Pesanan berhasil dikirim! ID Pesanan: ${result.orderId}. Cek email Anda untuk konfirmasi.`);
+                closePaymentModal();
+            } else {
+                alert(`Gagal mengirim pesanan: ${result.message || 'Terjadi kesalahan.'}`);
+            }
+        } catch (error) {
+            console.error('Error submitting order:', error);
+            alert('Terjadi kesalahan saat mengirim pesanan. Coba lagi atau hubungi admin.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Kirim Bukti & Data ke Admin';
+        }
+    }
+</script>
+  <p style="text-align: center; padding: 10px 0; font-size: 0.9em;">🌠Hallo, Store Ini Aman Ko 100%, Coba kamu Cek Testimoninya</p>
+</body>
+</html>
